@@ -8,7 +8,7 @@ public class EconomiaModel {
 
 
 public class USDBRL {
-    
+        
     public string code { get; set; }
     public string codein { get; set; }
     public string name { get; set; }
