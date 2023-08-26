@@ -19,9 +19,9 @@ public class RepositoryApi : IRepositoryApi
         return await response.ReadContentAs<EnderecoModel>();
     }
 
-    public async Task<EconomiaModel> FindByCode(string code)
+    public async Task<EconomiaModel> FindByCode(string kind)
     {
-        var response = await _client.GetAsync($"https://economia.awesomeapi.com.br/last/{code}");
+        var response = await _client.GetAsync($"https://pokeapi.co/api/v2/ability/{kind}");
         return await response.ReadContentAs<EconomiaModel>();
     }
 }

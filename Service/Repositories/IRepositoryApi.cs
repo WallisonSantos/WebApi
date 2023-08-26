@@ -5,5 +5,5 @@ namespace Service.Repositories;
 public interface IRepositoryApi
 {
     Task<EnderecoModel> FindByCep(string cep);
-    Task<EconomiaModel> FindByCode(string code);
+    Task<EconomiaModel> FindByCode(string kind);
 }

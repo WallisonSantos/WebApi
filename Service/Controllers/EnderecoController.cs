@@ -24,11 +24,11 @@ public class EnderecoController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("aspx/{code}")]
-    public async Task<ActionResult<EconomiaModel>> FindByCode(string code)
+    [HttpGet("aspx/{kind}")]
+    public async Task<ActionResult<EconomiaModel>> FindByCode(string kind)
     {
-        var response = await _repository.FindByCode(code);
-        if(code == null) return NotFound();
+        var response = await _repository.FindByCode(kind);
+        if(kind == null) return NotFound();
         return Ok(response);
     }
 }
