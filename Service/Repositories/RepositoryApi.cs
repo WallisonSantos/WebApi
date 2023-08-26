@@ -4,11 +4,11 @@ using Service.Utils;
 
 namespace Service.Repositories;
 
-public class EnderecoRepository : IEnderecoRepository
+public class RepositoryApi : IRepositoryApi
 {
     private readonly HttpClient _client;
 
-    public EnderecoRepository(HttpClient client)
+    public RepositoryApi(HttpClient client)
     {
         _client = client ?? throw new ArgumentNullException(nameof(client));
     }
@@ -17,5 +17,11 @@ public class EnderecoRepository : IEnderecoRepository
     {
         var response = await _client.GetAsync($"https://brasilapi.com.br/api/cep/v1/{cep}");
         return await response.ReadContentAs<EnderecoModel>();
+    }
+
+    public async Task<EconomiaModel> FindByCode(string code)
+    {
+        var response = await _client.GetAsync($"https://economia.awesomeapi.com.br/last/{code}");
+        return await response.ReadContentAs<EconomiaModel>();
     }
 }
